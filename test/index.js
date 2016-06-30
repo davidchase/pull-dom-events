@@ -29,7 +29,7 @@ class FakeDOMElement {
     }
 }
 
-const noop = () => ({});
+const noop = () => ({})
 
 test('emits data', function(t) {
     const element = new FakeDOMElement('foo')
