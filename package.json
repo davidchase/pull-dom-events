@@ -1,0 +1,41 @@
+{
+  "name": "pull-dom-events",
+  "description": "Simple pull-stream for DOM events",
+  "version": "1.0.0",
+  "author": "David Chase <davidchase03@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/davidchase/pull-dom-events/issues"
+  },
+  "homepage": "https://github.com/davidchase/pull-dom-events#readme",
+  "keywords": [
+    "dom",
+    "event",
+    "events",
+    "pull-stream"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidchase/pull-dom-events.git"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
+  },
+  "ava": {
+    "babel": "inherit"
+  },
+  "devDependencies": {
+    "ava": "0.15.2",
+    "babel": "6.5.2",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-stage-0": "6.5.0",
+    "pull-stream": "3.4.3"
+  }
+}
