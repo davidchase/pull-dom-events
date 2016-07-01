@@ -6,6 +6,12 @@
   "bugs": {
     "url": "https://github.com/davidchase/pull-dom-events/issues"
   },
+  "devDependencies": {
+    "ava": "0.15.2",
+    "pull-stream": "3.4.3",
+    "rollup": "0.33.0",
+    "rollup-plugin-buble": "0.12.1"
+  },
   "homepage": "https://github.com/davidchase/pull-dom-events#readme",
   "keywords": [
     "dom",
@@ -20,12 +26,7 @@
     "url": "git+https://github.com/davidchase/pull-dom-events.git"
   },
   "scripts": {
+    "build": "rollup -c -f umd -o dist/pull-dom-events.js",
     "test": "ava -v"
-  },
-  "devDependencies": {
-    "ava": "0.15.2",
-    "pull-stream": "3.4.3",
-    "rollup": "0.33.0",
-    "rollup-plugin-buble": "0.12.1"
   }
 }
