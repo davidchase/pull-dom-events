@@ -1,6 +1,9 @@
 # pull-dom-events
 Simple [pull-stream](https://github.com/pull-stream/pull-stream) for DOM events
 
+![](https://nodei.co/npm/pull-dom-events.png)
+
+![](https://img.shields.io/npm/v/pull-dom-events.svg?style=flat-square) ![](https://img.shields.io/npm/l/pull-dom-events.svg?style=flat-square)
 ### Install
 
 `npm install --save pull-dom-events`
