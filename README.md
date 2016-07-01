@@ -42,7 +42,7 @@ Currently supporting the following event-types:
 `click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseenter, mouseout, mouseleave, keydown, keypress, keyup, load, unload `
 
 ```js
-  click(document)
+ const source = click(document)
 ```
 
 
