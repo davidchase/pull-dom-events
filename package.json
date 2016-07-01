@@ -27,6 +27,6 @@
   },
   "scripts": {
     "build": "rollup -c -f umd -o dist/pull-dom-events.js",
-    "test": "ava -v"
+    "test": "npm run build && ava -v"
   }
 }

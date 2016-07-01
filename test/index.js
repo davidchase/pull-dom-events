@@ -1,8 +1,9 @@
 'use strict'
+
+const test = require('ava')
 const pull = require('pull-stream')
 const {filter, map, take, through, drain, log, collect} = pull
 const {pullEvent} = require('../dist/pull-dom-events')
-const test = require('ava')
 
 class FakeDOMElement {
     constructor(nodeName) {

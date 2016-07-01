@@ -1,3 +1,5 @@
+'use strict';
+
 exports.pullEvent = function pullEvent(type, eventTarget, capture = false) {
     let callback
     const listener = function(evnt) {
