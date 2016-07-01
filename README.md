@@ -34,7 +34,7 @@ pull(
 
 `pullEvent` takes a `eventType` such `click, mouseover, keydown, etc` an element such as `document` and an optional `capture` boolean.
 
-### `eventType(element, capture?)`
+#### `eventType(element, capture?)`
 `eventType` takes a element to bind to and an option `capture` boolean
 
 Currently supporting the following event-types:
