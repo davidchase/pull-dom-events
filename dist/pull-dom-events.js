@@ -4,29 +4,24 @@
     (factory());
 }(this, function () { 'use strict';
 
-    var partial = function (fn) {
-        var args = [], len = arguments.length - 1;
-        while ( len-- > 0 ) args[ len ] = arguments[ len + 1 ];
-
-        return fn.bind.apply(fn, [ fn ].concat( args ));
-    }
-
     exports.pullEvent = function pullEvent(type, eventTarget, capture) {
         if ( capture === void 0 ) capture = false;
 
-        var called = false
-        var listener = function(next, event) {
-            next(null, event)
+        var callback
+        var listener = function(event) {
+            if (callback) {
+                var _cb = callback
+                callback = null
+                _cb(null, event)
+            }
         }
-        return function read(end, next) {
-            if (end) {
-                eventTarget.removeEventListener(type, partial(listener, next), capture)
-                return next(end)
+        eventTarget.addEventListener(type, listener, capture)
+        return function read(abort, next) {
+            if (abort) {
+                eventTarget.removeEventListener(type, listener, capture)
+                return next(abort)
             }
-            if (!called) {
-                called = true
-                eventTarget.addEventListener(type, partial(listener, next), capture)
-            }
+            callback = next
         }
     }
 
