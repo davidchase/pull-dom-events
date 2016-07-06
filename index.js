@@ -1,21 +1,21 @@
 'use strict'
 
-const partial = (fn, ...args) => fn.bind(fn, ...args)
-
 exports.pullEvent = function pullEvent(type, eventTarget, capture = false) {
-    let called = false
-    const listener = function(next, event) {
-        next(null, event)
+    let callback
+    const listener = function(event) {
+        if (callback) {
+            let _cb = callback
+            callback = null
+            _cb(null, event)
+        }
     }
-    return function read(end, next) {
-        if (end) {
-            eventTarget.removeEventListener(type, partial(listener, next), capture)
-            return next(end)
+    eventTarget.addEventListener(type, listener, capture)
+    return function read(abort, next) {
+        if (abort) {
+            eventTarget.removeEventListener(type, listener, capture)
+            return next(abort)
         }
-        if (!called) {
-            called = true
-            eventTarget.addEventListener(type, partial(listener, next), capture)
-        }
+        callback = next
     }
 }
 
