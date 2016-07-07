@@ -1,17 +1,19 @@
-'use strict';
+'use strict'
 
 exports.pullEvent = function pullEvent(type, eventTarget, capture = false) {
     let callback
-    const listener = function(evnt) {
+    const listener = function(event) {
         if (callback) {
-            return callback(null, evnt)
+            let _cb = callback
+            callback = null
+            _cb(null, event)
         }
     }
     eventTarget.addEventListener(type, listener, capture)
-    return function read(end, next) {
-        if (end) {
+    return function read(abort, next) {
+        if (abort) {
             eventTarget.removeEventListener(type, listener, capture)
-            return next(end)
+            return next(abort)
         }
         callback = next
     }
